@@ -1,6 +1,7 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class Evento {
+public  class Evento {
     private String titolo;
     private LocalDate data;
     private int numeroPostiTotali;
@@ -68,7 +69,8 @@ public class Evento {
 
     @Override
     public String toString(){
-        return "Data: " + data + " - Titolo: " + titolo;
+        DateTimeFormatter dataFormattata = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return "In data: " + getData().format(dataFormattata) + "si terrà il concerto: " + getTitolo();
 
     }
 
