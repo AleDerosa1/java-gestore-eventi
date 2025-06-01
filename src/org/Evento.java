@@ -80,7 +80,7 @@ public  class Evento {
     @Override
     public String toString(){
         DateTimeFormatter dataFormattata = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "In data: " + this.getData().format(dataFormattata) + "si terrà il concerto: " + this.getTitolo();
+        return "In data: " + this.getData().format(dataFormattata) + " si terrà il concerto: " + this.getTitolo();
 
     }
 
