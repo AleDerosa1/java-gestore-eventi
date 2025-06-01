@@ -37,8 +37,7 @@ public class Concerto extends Evento {
         DateTimeFormatter dataFormattata = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter oraFormattata = DateTimeFormatter.ofPattern("HH:mm");
 
-        return "Il concerto: " + getTitolo() + "si terrà in data: " + getData().format(dataFormattata) + "alle ore: "
-                + getOra().format(oraFormattata) + "ed il prezzo del biglietto sarà di $: " + getPrezzo();
+        return "Il concerto: " + getTitolo() + "si terrà in data: " + getData().format(dataFormattata) + "alle ore: " + getOra().format(oraFormattata) + "ed il prezzo del biglietto sarà di $: " + String.format("%.2f", prezzo);
 
     }
 }

@@ -1,17 +1,27 @@
+package org;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
 
 public  class Evento {
     private String titolo;
     private LocalDate data;
     private int numeroPostiTotali;
-    private int numeroPostiPrenotati = 0;
+    private int numeroPostiPrenotati;
 
-    public Evento (String titolo, LocalDate data, int numeroPostiTotali, int numeroPostiPrenotati){
+    public Evento (String titolo, LocalDate data, int numeroPostiTotali){
         this.titolo = titolo;
-        this.data = data;
-        this.numeroPostiTotali = numeroPostiTotali;
-        this.numeroPostiPrenotati = numeroPostiPrenotati;
+         if (LocalDate.now().isAfter(data)) {
+            throw new IllegalStateException("Inserire una data nel futuro.");
+         }else{
+            this.data = data;
+         }
+         if (numeroPostiTotali <= 0){
+             throw new IllegalStateException("Inserire numero di posti positivo.");
+         }else{
+            this.numeroPostiTotali = numeroPostiTotali;
+         }
+        this.numeroPostiPrenotati = 0;
     }
 
     public String getTitolo(){
