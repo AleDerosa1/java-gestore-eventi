@@ -9,15 +9,15 @@ public class Concerto extends Evento {
     private LocalTime ora;
     private BigDecimal prezzo;
 
-    public Concerto(String titolo, LocalDate data, int numeroPostiPrenotati, int numeroPostiTotali, LocalTime ora,
+    public Concerto(String titolo, LocalDate data, int numeroPostiTotali, LocalTime ora,
             BigDecimal prezzo) {
-        super(titolo, data, numeroPostiTotali, numeroPostiPrenotati);
+        super(titolo, data, numeroPostiTotali);
         this.ora = ora;
         this.prezzo = prezzo;
     }
 
     public LocalTime getOra() {
-        return ora;
+        return this.ora;
     }
 
     public void setOra(LocalTime ora) {
@@ -25,7 +25,7 @@ public class Concerto extends Evento {
     }
 
     public BigDecimal getPrezzo() {
-        return prezzo;
+        return this.prezzo;
     }
 
     public void setPrezzo(BigDecimal prezzo) {
@@ -37,7 +37,9 @@ public class Concerto extends Evento {
         DateTimeFormatter dataFormattata = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter oraFormattata = DateTimeFormatter.ofPattern("HH:mm");
 
-        return "Il concerto: " + getTitolo() + "si terrà in data: " + getData().format(dataFormattata) + "alle ore: " + getOra().format(oraFormattata) + "ed il prezzo del biglietto sarà di $: " + String.format("%.2f", prezzo);
+        return "Il concerto: " + super.getTitolo() + "si terrà in data: " + super.getData().format(dataFormattata)
+                + "alle ore: " + this.getOra().format(oraFormattata) + "ed il prezzo del biglietto sarà di $: "
+                + String.format("%.2f", prezzo);
 
     }
 }

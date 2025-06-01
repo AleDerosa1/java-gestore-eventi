@@ -25,7 +25,7 @@ public  class Evento {
     }
 
     public String getTitolo(){
-        return titolo;
+        return this.titolo;
     }
 
     public void setTitolo(String titolo){
@@ -80,7 +80,7 @@ public  class Evento {
     @Override
     public String toString(){
         DateTimeFormatter dataFormattata = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "In data: " + getData().format(dataFormattata) + "si terrà il concerto: " + getTitolo();
+        return "In data: " + this.getData().format(dataFormattata) + "si terrà il concerto: " + this.getTitolo();
 
     }
 
